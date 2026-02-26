@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f4efe8;
+  --ink: #1f2a33;
+  --muted: #5a6774;
+  --line: #d9cec2;
+  --accent: #b9613f;
+  --focus: #3b6c96;
+  --shadow-soft: 0 20px 40px -30px rgb(19 34 46 / 55%), 0 6px 20px -18px rgb(19 34 46 / 35%);
+}
+
+@theme inline {
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+  --font-sans:
+    "Avenir Next", "Avenir", "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans",
+    Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(120% 100% at 0% 0%, rgb(185 97 63 / 16%), transparent 55%),
+    radial-gradient(120% 90% at 100% 0%, rgb(59 108 150 / 16%), transparent 55%),
+    linear-gradient(180deg, #f8f4ee 0%, var(--paper) 45%, #f1ebe2 100%);
+  color: var(--ink);
+  font-family: "Avenir Next", "Avenir", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.09;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgb(35 47 58 / 9%) 0 1px,
+      transparent 1px 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgb(35 47 58 / 7%) 0 1px,
+      transparent 1px 5px
+    );
+  mix-blend-mode: multiply;
+}
+
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--focus) 16%, transparent);
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: color-mix(in oklab, white 88%, var(--paper));
+  box-shadow: var(--shadow-soft);
+}
+
+.button-main {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--accent) 88%, black);
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.925rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.8rem 1.1rem;
+  transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+}
+
+.button-main:hover {
+  filter: brightness(0.98);
+  transform: translateY(-1px);
+}
+
+.button-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgb(255 255 255 / 72%);
+  color: var(--ink);
+  font-size: 0.925rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.8rem 1.1rem;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.button-ghost:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--accent) 32%, var(--line));
+  background: rgb(255 255 255 / 88%);
+}
