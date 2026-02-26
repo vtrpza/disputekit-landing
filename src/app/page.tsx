@@ -5,7 +5,7 @@ import Faq from "@/components/Faq";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Pricing from "@/components/Pricing";
+import Turnaround from "@/components/Turnaround";
 import {
   audience,
   benefits,
@@ -15,17 +15,12 @@ import {
   footerEmail,
   hero,
   heroBullets,
-  pricing,
   sectionTitles,
+  turnaround,
 } from "@/content/landing";
 
 export default function Home() {
-  const ctaLinks = {
-    standard: process.env.NEXT_PUBLIC_STRIPE_STANDARD_LINK ?? "#",
-    rush: process.env.NEXT_PUBLIC_STRIPE_RUSH_LINK ?? "#",
-    intake: process.env.NEXT_PUBLIC_CALENDLY_LINK ?? "#",
-  };
-  const showPaymentNotice = ctaLinks.standard === "#" && ctaLinks.rush === "#";
+  const intakeLink = process.env.NEXT_PUBLIC_CALENDLY_LINK ?? "#";
 
   return (
     <div className="relative overflow-hidden pb-14">
@@ -36,8 +31,9 @@ export default function Home() {
           description={hero.description}
           includedTitle={sectionTitles.included}
           bullets={heroBullets}
-          ctaLabels={hero.ctaLabels}
-          ctaLinks={ctaLinks}
+          ctaLabel={hero.ctaLabel}
+          ctaLink={intakeLink}
+          ctaHelper={hero.ctaHelper}
         />
         <Benefits items={benefits} />
         <Deliverables title={sectionTitles.deliverables} items={deliverables} />
@@ -47,19 +43,19 @@ export default function Home() {
           notForTitle={sectionTitles.notFor}
           notForText={audience.notFor}
         />
-        <Pricing
-          title={sectionTitles.pricing}
-          standard={pricing.standard}
-          rush={pricing.rush}
-          showPaymentNotice={showPaymentNotice}
-          ctaLinks={{ standard: ctaLinks.standard, rush: ctaLinks.rush }}
+        <Turnaround
+          title={sectionTitles.turnaround}
+          standard={turnaround.standard}
+          rush={turnaround.rush}
+          ctaLabel="Request a pack"
+          ctaLink={intakeLink}
         />
         <Faq title={sectionTitles.faq} items={faq} />
         <FinalCta
           title={sectionTitles.finalCta}
           description={finalCta.description}
-          ctaLabels={finalCta.ctaLabels}
-          ctaLinks={ctaLinks}
+          ctaLabel={finalCta.ctaLabel}
+          ctaLink={intakeLink}
         />
         <Footer email={footerEmail} />
       </main>

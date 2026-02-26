@@ -4,16 +4,9 @@ type HeroProps = {
   description: string;
   includedTitle: string;
   bullets: string[];
-  ctaLabels: {
-    standard: string;
-    rush: string;
-    intake: string;
-  };
-  ctaLinks: {
-    standard: string;
-    rush: string;
-    intake: string;
-  };
+  ctaLabel: string;
+  ctaLink: string;
+  ctaHelper: string;
 };
 
 export default function Hero({
@@ -22,8 +15,9 @@ export default function Hero({
   description,
   includedTitle,
   bullets,
-  ctaLabels,
-  ctaLinks,
+  ctaLabel,
+  ctaLink,
+  ctaHelper,
 }: HeroProps) {
   return (
     <section className="panel grid gap-8 p-7 sm:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
@@ -37,16 +31,11 @@ export default function Hero({
         <p className="max-w-2xl text-pretty text-lg leading-8 text-[var(--muted)]">
           {description}
         </p>
-        <div className="flex flex-wrap gap-3">
-          <a className="button-main" href={ctaLinks.standard}>
-            {ctaLabels.standard}
+        <div className="space-y-2">
+          <a className="button-main inline-flex" href={ctaLink}>
+            {ctaLabel}
           </a>
-          <a className="button-ghost" href={ctaLinks.rush}>
-            {ctaLabels.rush}
-          </a>
-          <a className="button-ghost" href={ctaLinks.intake}>
-            {ctaLabels.intake}
-          </a>
+          <p className="text-sm text-[var(--muted)]">{ctaHelper}</p>
         </div>
       </div>
       <div className="rounded-2xl border border-[var(--line)] bg-white/80 p-6 shadow-[var(--shadow-soft)] sm:p-7">

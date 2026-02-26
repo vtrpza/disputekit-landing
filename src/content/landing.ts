@@ -8,16 +8,19 @@ export type FaqItem = {
   a: string;
 };
 
-export const pricing = {
+export type TurnaroundTier = {
+  name: string;
+  turnaround: string;
+};
+
+export const turnaround = {
   standard: {
     name: "Standard",
-    price: "$79",
-    turnaround: "Delivered in 24h (business days)",
+    turnaround: "24h (business days)",
   },
   rush: {
     name: "Rush",
-    price: "$149",
-    turnaround: "Delivered in 6-12h (business days)",
+    turnaround: "Same day (subject to feasibility + deadline)",
   },
 } as const;
 
@@ -26,30 +29,30 @@ export const sectionTitles = {
   deliverables: "What you get",
   audience: "Who it's for",
   notFor: "Not for",
-  pricing: "Pricing",
+  turnaround: "Turnaround",
   faq: "FAQ",
   finalCta: "Ready to submit a stronger response?",
 } as const;
 
 export const heroBullets = [
   "Reason-based checklist (fraud / subscription / service dispute)",
-  "Paste-ready cover letter (clear, concise, no fluff)",
-  "Evidence ZIP + attachment index",
-  "Optional: we stage evidence in Stripe as a draft (submit=false)",
+  "Paste-ready cover letter (clean, concise, no fluff)",
+  "Evidence ZIP + attachment index (nothing gets missed)",
+  "Optional: we can stage evidence in Stripe as a draft (submit=false)",
 ];
 
 export const benefits: Benefit[] = [
   {
-    title: "Built for Stripe workflows",
-    text: "Structured around how Stripe evidence is reviewed so your response is easy to audit quickly.",
+    title: "Built for Stripe review flow",
+    text: "Structured around how Stripe evidence is evaluated, so every claim is easy to follow.",
   },
   {
-    title: "Fast turnaround",
-    text: "Get a complete pack in 24h (business days), or pick rush for 6-12h (business days).",
+    title: "Submission-ready output",
+    text: "A complete response pack you can review quickly and submit without cleanup.",
   },
   {
-    title: "Clear and complete",
-    text: "No legal theater. Just organized narrative, timeline, and attachments you can submit with confidence.",
+    title: "Clear, complete, and focused",
+    text: "No filler. Just a tight narrative, reason-specific checklist, and organized evidence set.",
   },
 ];
 
@@ -63,32 +66,29 @@ export const deliverables = [
 export const faq: FaqItem[] = [
   {
     q: "Do you guarantee wins?",
-    a: "No. We optimize for clarity, completeness, and speed.",
+    a: "No guarantees. We optimize for clarity, completeness, and speed.",
   },
   {
     q: "What do you need from me?",
-    a: "Dispute ID, due date, policy links, and any relevant customer communications or logs.",
+    a: "Dispute ID, due date, policy links, and relevant customer communications/logs.",
   },
   {
     q: "How do you handle privacy?",
-    a: "Uploads are deleted after 7 days under our standard policy.",
+    a: "We delete uploads after 7 days under our standard privacy policy.",
   },
   {
     q: "Can you submit on my behalf?",
-    a: "We can optionally stage your evidence in Stripe as a draft. Final submission stays with you.",
+    a: "We can stage evidence in Stripe as a draft, but final submission stays with the customer.",
   },
 ];
 
 export const hero = {
   badge: "DisputeKit",
-  title: "Stripe dispute pack for SaaS & digital products.",
+  title: "Stripe dispute response pack for SaaS & digital products.",
   description:
-    "A Stripe-ready response in 24h (business days): narrative + evidence checklist + organized attachments.",
-  ctaLabels: {
-    standard: `Get Standard - ${pricing.standard.price}`,
-    rush: `Get Rush - ${pricing.rush.price}`,
-    intake: "Request a pack",
-  },
+    "A submission-ready pack in 24h (business days): clear narrative + evidence checklist + organized attachments.",
+  ctaLabel: "Request a pack",
+  ctaHelper: "No guarantees — we optimize for clarity, completeness, and speed.",
 } as const;
 
 export const audience = {
@@ -99,11 +99,7 @@ export const audience = {
 export const finalCta = {
   description:
     "We turn your case details into a clean, Stripe-ready pack fast, so you can focus on running the business.",
-  ctaLabels: {
-    standard: `Start Standard - ${pricing.standard.price}`,
-    rush: `Start Rush - ${pricing.rush.price}`,
-    intake: "Request a pack",
-  },
+  ctaLabel: "Request a pack",
 } as const;
 
 export const footerEmail = "vhnpouza@gmail.com";
