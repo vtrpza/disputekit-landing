@@ -31,6 +31,10 @@ export default function Hero({
         <p className="max-w-2xl text-pretty text-lg leading-8 text-[var(--muted)]">
           {description}
         </p>
+        <p className="max-w-2xl text-sm leading-6 text-[var(--muted)]">
+          Scope: SaaS &amp; digital products only. Not for physical shipping / proof-of-delivery
+          disputes.
+        </p>
         <div className="space-y-2">
           <a className="button-main inline-flex" href={ctaLink}>
             {ctaLabel}

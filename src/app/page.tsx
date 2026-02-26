@@ -37,6 +37,19 @@ export default function Home() {
         />
         <Benefits items={benefits} />
         <Deliverables title={sectionTitles.deliverables} items={deliverables} />
+        <section className="panel p-6 sm:p-8">
+          <h2 className="text-xl font-semibold tracking-tight text-[var(--ink)] sm:text-2xl">
+            Have an active dispute?
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--muted)] sm:text-base">
+            Request a pack and we&apos;ll confirm feasibility + turnaround.
+          </p>
+          <div className="mt-5">
+            <a className="button-main inline-flex" href={intakeLink}>
+              Request a pack
+            </a>
+          </div>
+        </section>
         <Audience
           audienceTitle={sectionTitles.audience}
           audienceText={audience.whoItsFor}
