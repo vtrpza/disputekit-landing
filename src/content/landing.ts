@@ -87,7 +87,7 @@ export const hero = {
   ctaLabels: {
     standard: `Get Standard - ${pricing.standard.price}`,
     rush: `Get Rush - ${pricing.rush.price}`,
-    calendly: "Book a quick call",
+    intake: "Request a pack",
   },
 } as const;
 
@@ -102,8 +102,8 @@ export const finalCta = {
   ctaLabels: {
     standard: `Start Standard - ${pricing.standard.price}`,
     rush: `Start Rush - ${pricing.rush.price}`,
-    calendly: "Talk through a case",
+    intake: "Request a pack",
   },
 } as const;
 
-export const footerEmail = "hello@disputekit.com";
+export const footerEmail = "vhnpouza@gmail.com";

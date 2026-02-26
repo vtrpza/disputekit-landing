@@ -4,12 +4,12 @@ type FinalCtaProps = {
   ctaLabels: {
     standard: string;
     rush: string;
-    calendly: string;
+    intake: string;
   };
   ctaLinks: {
     standard: string;
     rush: string;
-    calendly: string;
+    intake: string;
   };
 };
 
@@ -27,8 +27,8 @@ export default function FinalCta({ title, description, ctaLabels, ctaLinks }: Fi
         <a className="button-ghost" href={ctaLinks.rush}>
           {ctaLabels.rush}
         </a>
-        <a className="button-ghost" href={ctaLinks.calendly}>
-          {ctaLabels.calendly}
+        <a className="button-ghost" href={ctaLinks.intake}>
+          {ctaLabels.intake}
         </a>
       </div>
     </section>

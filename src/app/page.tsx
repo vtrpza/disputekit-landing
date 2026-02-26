@@ -23,8 +23,9 @@ export default function Home() {
   const ctaLinks = {
     standard: process.env.NEXT_PUBLIC_STRIPE_STANDARD_LINK ?? "#",
     rush: process.env.NEXT_PUBLIC_STRIPE_RUSH_LINK ?? "#",
-    calendly: process.env.NEXT_PUBLIC_CALENDLY_LINK ?? "#",
+    intake: process.env.NEXT_PUBLIC_CALENDLY_LINK ?? "#",
   };
+  const showPaymentNotice = ctaLinks.standard === "#" && ctaLinks.rush === "#";
 
   return (
     <div className="relative overflow-hidden pb-14">
@@ -50,6 +51,7 @@ export default function Home() {
           title={sectionTitles.pricing}
           standard={pricing.standard}
           rush={pricing.rush}
+          showPaymentNotice={showPaymentNotice}
           ctaLinks={{ standard: ctaLinks.standard, rush: ctaLinks.rush }}
         />
         <Faq title={sectionTitles.faq} items={faq} />

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { footerEmail } from "@/content/landing";
 
 export default function PrivacyPage() {
   return (
@@ -11,8 +12,8 @@ export default function PrivacyPage() {
         </p>
         <p className="mt-4 text-base leading-7 text-[var(--muted)]">
           For questions, contact{" "}
-          <a className="underline underline-offset-4" href="mailto:hello@disputekit.com">
-            hello@disputekit.com
+          <a className="underline underline-offset-4" href={`mailto:${footerEmail}`}>
+            {footerEmail}
           </a>
           .
         </p>
